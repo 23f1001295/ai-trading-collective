@@ -14,7 +14,165 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      agent_analysis: {
+        Row: {
+          agent_type: string
+          analysis: Json
+          analyzed_at: string
+          confidence: number | null
+          created_at: string
+          id: string
+          reasoning: string | null
+          recommendation: string | null
+          ticker: string
+          user_id: string
+        }
+        Insert: {
+          agent_type: string
+          analysis: Json
+          analyzed_at?: string
+          confidence?: number | null
+          created_at?: string
+          id?: string
+          reasoning?: string | null
+          recommendation?: string | null
+          ticker: string
+          user_id: string
+        }
+        Update: {
+          agent_type?: string
+          analysis?: Json
+          analyzed_at?: string
+          confidence?: number | null
+          created_at?: string
+          id?: string
+          reasoning?: string | null
+          recommendation?: string | null
+          ticker?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      backtest_results: {
+        Row: {
+          created_at: string
+          end_date: string
+          final_value: number
+          id: string
+          initial_capital: number
+          results_data: Json
+          start_date: string
+          ticker: string
+          total_return: number
+          total_trades: number
+          user_id: string
+          win_rate: number | null
+        }
+        Insert: {
+          created_at?: string
+          end_date: string
+          final_value: number
+          id?: string
+          initial_capital: number
+          results_data: Json
+          start_date: string
+          ticker: string
+          total_return: number
+          total_trades: number
+          user_id: string
+          win_rate?: number | null
+        }
+        Update: {
+          created_at?: string
+          end_date?: string
+          final_value?: number
+          id?: string
+          initial_capital?: number
+          results_data?: Json
+          start_date?: string
+          ticker?: string
+          total_return?: number
+          total_trades?: number
+          user_id?: string
+          win_rate?: number | null
+        }
+        Relationships: []
+      }
+      portfolio: {
+        Row: {
+          average_price: number | null
+          cash_balance: number
+          created_at: string
+          id: string
+          last_updated: string
+          quantity: number
+          ticker: string
+          total_value: number
+          user_id: string
+        }
+        Insert: {
+          average_price?: number | null
+          cash_balance?: number
+          created_at?: string
+          id?: string
+          last_updated?: string
+          quantity?: number
+          ticker: string
+          total_value?: number
+          user_id: string
+        }
+        Update: {
+          average_price?: number | null
+          cash_balance?: number
+          created_at?: string
+          id?: string
+          last_updated?: string
+          quantity?: number
+          ticker?: string
+          total_value?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      trades: {
+        Row: {
+          action: string
+          cash_after: number
+          created_at: string
+          id: string
+          price: number
+          quantity: number
+          ticker: string
+          total_value: number
+          trade_date: string
+          user_id: string
+        }
+        Insert: {
+          action: string
+          cash_after: number
+          created_at?: string
+          id?: string
+          price: number
+          quantity: number
+          ticker: string
+          total_value: number
+          trade_date?: string
+          user_id: string
+        }
+        Update: {
+          action?: string
+          cash_after?: number
+          created_at?: string
+          id?: string
+          price?: number
+          quantity?: number
+          ticker?: string
+          total_value?: number
+          trade_date?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
